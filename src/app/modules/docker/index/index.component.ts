@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DockerService } from '../../../services/docker.service';
-import {DockerFile} from '../../../objects/dockerfile';
+import { DockerFile } from '../../../objects/dockerfile';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-index',
@@ -10,7 +11,10 @@ import {DockerFile} from '../../../objects/dockerfile';
 export class IndexComponent implements OnInit {
   dockerFiles: DockerFile[];
   errorMessages: any;
-  constructor(private dockerService: DockerService) { }
+  constructor(
+    private dockerService: DockerService,
+    private router: Router,
+  ) { }
 
   ngOnInit() {
     this.getDockerFiles();
@@ -21,6 +25,17 @@ export class IndexComponent implements OnInit {
     .subscribe(
       dockerFiles => this.dockerFiles = dockerFiles,
       errorMesage => this.errorMessages = <any> errorMesage
+    );
+  }
+
+  deleteDockerFile(event, id: number) {
+    this.dockerService.deleteDockerFile(id)
+    .subscribe(
+      successMessage => {
+        console.log(successMessage);
+        this.getDockerFiles();
+      },
+      errorMesage => console.log(errorMesage)
     );
   }
 }

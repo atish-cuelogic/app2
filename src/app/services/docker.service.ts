@@ -15,4 +15,16 @@ export class DockerService {
     .map((response: Response) => <DockerFile[]> response.json());
   }
 
+  createDockerFile(dockerfile: DockerFile):  Observable<any> {
+    return this._http
+    .post('https://cors-anywhere.herokuapp.com/https://40e8c659.ngrok.io/dockerfiles', dockerfile)
+    .map((response: Response) => <DockerFile[]> response.json());
+  }
+
+  deleteDockerFile(id: number):  Observable<any> {
+    return this._http
+    .delete('https://cors-anywhere.herokuapp.com/https://40e8c659.ngrok.io/dockerfiles/' + id)
+    .map((response: Response) => <DockerFile[]> response.json());
+  }
+
 }
