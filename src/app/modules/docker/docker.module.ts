@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DockerComponent } from './docker.component';
 import { NewComponent } from './new/new.component';
+import { IndexComponent } from './index/index.component';
 
 const dockerRoutes: Routes = [
-  { path: '', component: DockerComponent },
+  { path: '', component: IndexComponent },
   { path : 'new', component: NewComponent }
 ];
 
 @NgModule({
   declarations: [
-    DockerComponent,
-    NewComponent
+    NewComponent,
+    IndexComponent
   ],
   imports: [
     RouterModule.forChild(dockerRoutes)
