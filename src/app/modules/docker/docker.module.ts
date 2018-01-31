@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NewComponent } from './new/new.component';
 import { IndexComponent } from './index/index.component';
+import { CommonModule } from '@angular/common';
+
 
 const dockerRoutes: Routes = [
   { path: '', component: IndexComponent },
@@ -14,7 +17,10 @@ const dockerRoutes: Routes = [
     IndexComponent
   ],
   imports: [
-    RouterModule.forChild(dockerRoutes)
+    RouterModule.forChild(dockerRoutes),
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
 })
