@@ -4,8 +4,8 @@ import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { NewComponent } from './new/new.component';
 import { IndexComponent } from './index/index.component';
 import { CommonModule } from '@angular/common';
-
-
+import { HttpModule } from '@angular/http';
+import { DockerService } from '../../services/docker.service';
 const dockerRoutes: Routes = [
   { path: '', component: IndexComponent },
   { path : 'new', component: NewComponent }
@@ -20,8 +20,9 @@ const dockerRoutes: Routes = [
     RouterModule.forChild(dockerRoutes),
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    HttpModule,
   ],
-  providers: [],
+  providers: [DockerService],
 })
 export class DockerModule { }

@@ -8,33 +8,15 @@
         <tr>
           <th>Title</th>
           <th>Description</th>
-          <th>Services</th>
+          <th>BaseImage</th>
           <th colspan="2">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>John</td>
-          <td>Doe</td>
-          <td>john@example.com</td>
-          <td>
-              <button type="button" class="btn btn-warning btn-sm">Edit</button>
-              <button type="button" class="btn btn-danger btn-sm">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>Mary</td>
-          <td>Moe</td>
-          <td>mary@example.com</td>
-          <td>
-              <button type="button" class="btn btn-warning btn-sm">Edit</button>
-              <button type="button" class="btn btn-danger btn-sm">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>July</td>
-          <td>Dooley</td>
-          <td>july@example.com</td>
+        <tr *ngFor="let dockerFile of dockerFiles" >
+          <td>{{dockerFile.title}}</td>
+          <td>{{dockerFile.description}}</td>
+          <td>{{dockerFile.base_image}}</td>
           <td>
               <button type="button" class="btn btn-warning btn-sm">Edit</button>
               <button type="button" class="btn btn-danger btn-sm">Delete</button>
